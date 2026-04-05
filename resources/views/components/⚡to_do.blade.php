@@ -21,8 +21,9 @@ new class extends Component
 
 <div>
     <form wire:submit="add">
-    <input type="text" wire:model="todo">
+    <input type="text" wire:model.live="todo">
     <button type="submit">Add</button>
+        <span> Current todo:{{$todo}}</span>
     </form>
     <ul>
         @foreach ($todos as $todo)

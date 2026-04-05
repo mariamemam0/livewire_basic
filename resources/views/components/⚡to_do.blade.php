@@ -5,10 +5,7 @@ use Livewire\Component;
 new class extends Component
 {
     public $todo = '';
-    public $todos= [
-        'Take out trash',
-        'Do dishes',
-    ];
+    public $todos= ['who cares'];
 
     public function add()
     {
@@ -16,12 +13,33 @@ new class extends Component
        $this->reset('todo');
     }
 
+
+
+
+// use this lifecycel hook method to do some validation
+    public function updated($property,$value)
+    {
+        $this->$property = strtoupper($value);
+        $this->validation();
+    }
+
+
+//    public function mount()
+//    {
+//        $this->todos = [
+//            'Take out trash',
+//            'Do dishes',
+//        ];
+//
+//        $this->todo = 'Type todo.....';
+//     }
+
 };
 ?>
 
 <div>
     <form wire:submit="add">
-    <input type="text" wire:model.live="todo">
+    <input type="text" wire:model="todo">
     <button type="submit">Add</button>
         <span> Current todo:{{$todo}}</span>
     </form>

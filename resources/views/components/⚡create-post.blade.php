@@ -5,7 +5,7 @@ use Livewire\Component;
 new class extends Component
 {
     //co-locating the validation rules with the properties they're concerned
-    #[\Livewire\Attributes\Rule('required',as:'da title')]
+    #[\Livewire\Attributes\Rule('required',message:'yo, add a title')]
 public $title ='';
     #[\Livewire\Attributes\Rule('required')]
 

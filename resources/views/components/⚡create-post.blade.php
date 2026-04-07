@@ -12,6 +12,11 @@ public $content = '';
 public function save()
 
 {
+    $this->validate([
+        'title'=> 'required',
+        'content'=> 'required',
+    ]);
+
         \App\Models\Post::create([
             'title'=>$this->title,
             'content'=>$this->content,
@@ -28,11 +33,14 @@ public function save()
         <label>
             <span>Title</span>
             <input type="text" wire:model="title" >
+            @error('title') <em>{{$message}}</em>@enderror
         </label>
 
         <label>
             <span>Content</span>
             <textarea wire:model="content" ></textarea>
+            @error('content') <em>{{$message}}</em>@enderror
+
         </label>
 
         <button type="submit">Save</button>

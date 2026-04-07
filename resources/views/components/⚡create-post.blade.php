@@ -28,7 +28,8 @@ public function save()
 
 <div>
     <h2>New Post:</h2>
-     Current Title:<span x-text="$wire.title.toUpperCase() + $wire.content"></span>
+     Current Title:<span x-text=""></span>
+    <button type="submit" x-on:click="$wire.save()">submit form</button>
 
 
     <form wire:submit="save">

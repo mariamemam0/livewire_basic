@@ -28,8 +28,6 @@ public function save()
 
 <div>
     <h2>New Post:</h2>
-     Current Title:<span x-text=""></span>
-    <button type="submit" x-on:click="$wire.save()">submit form</button>
 
 
     <form wire:submit="save">
@@ -42,6 +40,9 @@ public function save()
         <label>
             <span>Content</span>
             <textarea wire:model="content" ></textarea>
+            <small>Characters:
+            <span x-text="$wire.content.length"></span>
+            </small>
             @error('content') <em>{{$message}}</em>@enderror
 
         </label>

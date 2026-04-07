@@ -28,6 +28,8 @@ public function save()
 
 <div>
     <h2>New Post:</h2>
+     Current Title:<span x-text="$wire.title.toUpperCase() + $wire.content"></span>
+
 
     <form wire:submit="save">
         <label>

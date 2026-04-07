@@ -4,18 +4,16 @@ use Livewire\Component;
 
 new class extends Component
 {
-
+    #[\Livewire\Attributes\Rule('required')]
 public $title ='';
+    #[\Livewire\Attributes\Rule('required')]
 
 public $content = '';
 
 public function save()
 
 {
-    $this->validate([
-        'title'=> 'required',
-        'content'=> 'required',
-    ]);
+    $this->validate();
 
         \App\Models\Post::create([
             'title'=>$this->title,

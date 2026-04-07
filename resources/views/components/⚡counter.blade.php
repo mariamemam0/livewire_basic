@@ -1,8 +1,8 @@
 <?php
-
+use Livewire\Attributes\Title;
 use Livewire\Component;
 
-new class extends Component
+new #[Title('Counter')] class extends Component
 {
     public $count= 1;
 

@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::livewire('/','to_do');
+Route::livewire('/counter','counter');
+Route::livewire('/posts','show-posts');
+
+
+
+

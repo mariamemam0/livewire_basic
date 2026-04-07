@@ -4,7 +4,8 @@ use Livewire\Component;
 
 new class extends Component
 {
-    #[\Livewire\Attributes\Rule('required')]
+    //co-locating the validation rules with the properties they're concerned
+    #[\Livewire\Attributes\Rule('required',as:'da title')]
 public $title ='';
     #[\Livewire\Attributes\Rule('required')]
 
@@ -13,6 +14,7 @@ public $content = '';
 public function save()
 
 {
+
     $this->validate();
 
         \App\Models\Post::create([

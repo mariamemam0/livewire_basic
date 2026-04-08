@@ -7,18 +7,15 @@ it('renders successfully', function () {
         ->assertStatus(200);
 });
 
-it('can create new post', function () {
+it('title is required', function () {
 
-    $post = \App\Models\Post::whereTitle('Some Title')->first();
-    $this->assertNull($post);
+
     Livewire::test('create-post')
-      ->set('title', 'Some Title')
-    ->set('content', 'Some Content')
-    ->call('save');
+      ->set('title', '')
+      ->call('save')
+    ->assertHasErrors(['title'=>'required']);
 
-    $post = \App\Models\Post::whereTitle('Some Title')->first();
-    $this->assertNotNull($post);
-    $this->assertEquals('Some Content', $post->content);
+
 });
 
 

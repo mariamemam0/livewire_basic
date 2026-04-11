@@ -32,19 +32,8 @@ new class extends Component
         </thead>
         <tbody>
               @foreach($this->posts as $post)
-                  <tr wire:key="{{$post->id }}">
-                      <td>{{$post->title}}</td>
-                      <td>{{str($post->content)->limit(45)}}</td>
-                      <td>
-                          <button
-                              type="button"
-                              wire:click="delete({{ $post->id }})"
-                              wire:confirm="Are you sure you want to delete this post"
-                          >
-                              Delete
-                          </button>
-                      </td>
-                  </tr>
+                  <livewire:post-row wire:key="{{$post->id}}" :$post></livewire:post-row>
+
 
               @endforeach
 

@@ -34,7 +34,6 @@ new class extends Component
               @foreach($this->posts as $post)
                   <livewire:post-row wire:key="{{$post->id}}" :$post></livewire:post-row>
 
-
               @endforeach
 
         </tbody>

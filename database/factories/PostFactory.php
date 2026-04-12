@@ -20,8 +20,9 @@ class PostFactory extends Factory
         return [
             'title'      => fake()->sentence(),
             'content'    => fake()->paragraphs(3, true),
+            'is_archived' => fake()->boolean(),
             'created_at' => fake()->dateTimeBetween('-1 year', 'now'),
             'updated_at' => now(),
-        ];;
+        ];
     }
 }

@@ -9,8 +9,8 @@
 </head>
 <body>
 <nav>
-    <a href="/posts" @class(['current'=> request()->is('/')])>Posts</a>
-    <a href="/posts/create" @class(['current'=> request()->is('/posts/create')])> Create Posts</a>
+    <a wire:navigate href="/posts" @class(['current'=> request()->is('/')])>Posts</a>
+    <a wire:navigate href="/posts/create" @class(['current'=> request()->is('/posts/create')])> Create Posts</a>
 
 </nav>
 

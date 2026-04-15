@@ -5,6 +5,10 @@ use Livewire\Component;
 new class extends Component
 {
     public $name = '';
+    public $greeting = '';
+
+
+
 
     public function changeName()
     {
@@ -16,18 +20,31 @@ new class extends Component
 ?>
 <div>
     <div>
-        Hello, {{ $name }}!
+        {{$greeting}}, {{ $name }}!
     </div>
     <form
     wire:submit="changeName"
     >
 
     <div class="mt-2">
-        <input
+        <select
             id="newName"
             type="text"
-            wire:model.live="name"
-            class="block w-full p-4 border rounded-md bg-gray-700 text-white"
+            wire:model.fill="greeting"
+            class=" p-4 border rounded-md bg-gray-700 text-white"
+        >
+            <option value="Hello">Hello</option>
+            <option value="Hi">Hi</option>
+            <option value="Hey">Hey</option>
+            <option value="Howdy">Howdy</option>
+
+
+
+        </select>
+        <input
+            type="text"
+            wire:model="name"
+            class=" p-4 border rounded-md bg-gray-700 text-white"
         >
     </div>
 
@@ -40,4 +57,9 @@ new class extends Component
         </button>
     </div>
     </form>
+    @if($name ==! '')
+        <div class="mt-5">
+            {{$greeting}} , {{$name}}!
+        </div>
+        @endif
 </div>

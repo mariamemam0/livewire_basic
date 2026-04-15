@@ -4,12 +4,11 @@ use Livewire\Component;
 
 new class extends Component
 {
-    public $name = 'Jeremy';
-    public $newName = '';
+    public $name = '';
 
     public function changeName()
     {
-        $this->name = $this->newName;
+
     }
 
 
@@ -27,7 +26,7 @@ new class extends Component
         <input
             id="newName"
             type="text"
-            wire:model="newName"
+            wire:model.live="name"
             class="block w-full p-4 border rounded-md bg-gray-700 text-white"
         >
     </div>

@@ -16,6 +16,11 @@ new class extends Component
        $this->greetings = \App\Models\Greeting::all();
     }
 
+    public function updated()
+    {
+
+    }
+
 
 
 

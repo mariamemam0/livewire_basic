@@ -25,7 +25,7 @@ new class extends Component
 
     public function updatedName($value)
     {
-
+        $this->name= strtolower($value);
     }
 
 

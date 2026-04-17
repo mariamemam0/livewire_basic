@@ -4,11 +4,11 @@ use Livewire\Component;
 
 new class extends Component
 {
-    public $article;
+    public \App\Models\Article $article;
 
-    public function mount($id)
+    public function mount(\App\Models\Article $article)
     {
-        $this->article= \App\Models\Article::findOrFail($id);
+        $this->article= $article;
     }
 
 };

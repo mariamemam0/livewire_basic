@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Greeting;
 use App\Models\Post;
 use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -16,7 +17,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-         User::factory(10)->create();
+       //  User::factory(10)->create();
 
         User::factory()->create([
             'name' => 'Test User',
@@ -24,6 +25,13 @@ class DatabaseSeeder extends Seeder
         ]);
 
 
-        Post::factory(20)->create();
+       // Post::factory(20)->create();
+
+        Greeting::create(['greeting'=>'Hello']);
+        Greeting::create(['greeting'=>'Hi']);
+        Greeting::create(['greeting'=>'Howday']);
+        Greeting::create(['greeting'=>'Hay']);
+
+
     }
 }

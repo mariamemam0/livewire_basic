@@ -7,8 +7,14 @@ new class extends Component
 
     #[\Livewire\Attributes\Validate('required|min:2',onUpdate: false)]
     public $name = '';
+    public $greetings = [];
     public $greeting = '';
     public $greetingMessage = '';
+
+    public function mount()
+    {
+       $this->greetings = \App\Models\Greeting::all();
+    }
 
 
 
@@ -47,13 +53,9 @@ new class extends Component
             wire:model.fill="greeting"
             class=" p-4 border rounded-md bg-gray-700 text-white"
         >
-            <option value="Hello">Hello</option>
-            <option value="Hi">Hi</option>
-            <option value="Hey">Hey</option>
-            <option value="Howdy">Howdy</option>
-
-
-
+            @foreach($greetings as $item)
+                <option value="{{$item->greeting}}">{{$item->greeting}}</option>
+            @endforeach
         </select>
         <input
             type="text"

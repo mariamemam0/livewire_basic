@@ -4,6 +4,8 @@ use Livewire\Component;
 
 new class extends Component
 {
+
+    #[\Livewire\Attributes\Validate('required|min:2')]
     public $name = '';
     public $greeting = '';
     public $greetingMessage = '';
@@ -21,13 +23,13 @@ new class extends Component
 
             $this->greetingMessage = "{$this->greeting}, {$this->name}";
     }
-
-    public function rules()
-    {
-        return[
-            'name'=>'required|min:2',
-        ];
-    }
+//
+//    public function rules()
+//    {
+//        return[
+//            'name'=>'required|min:2',
+//        ];
+//    }
 
 
 };

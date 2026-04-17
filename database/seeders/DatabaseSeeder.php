@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Article;
 use App\Models\Greeting;
 use App\Models\Post;
 use App\Models\User;
@@ -31,6 +32,8 @@ class DatabaseSeeder extends Seeder
         Greeting::create(['greeting'=>'Hi']);
         Greeting::create(['greeting'=>'Howday']);
         Greeting::create(['greeting'=>'Hay']);
+
+        Article::factory()->count(50)->create();
 
 
     }

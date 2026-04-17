@@ -16,9 +16,11 @@ new class extends Component
        $this->greetings = \App\Models\Greeting::all();
     }
 
-    public function updated()
+    public function updated($property ,$value)
     {
-
+        if($property === 'name'){
+            $this->name = strtolower($value);
+        }
     }
 
 

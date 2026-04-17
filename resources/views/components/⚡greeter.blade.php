@@ -6,24 +6,31 @@ new class extends Component
 {
     public $name = '';
     public $greeting = '';
+    public $greetingMessage = '';
 
 
 
 
-    public function changeName()
+
+    public function changeGreeting()
     {
 
+        $this->reset('greetingMessage');
+        $this->validate([
+            'name'=>'required|min:2',
+        ]);
+
+
+            $this->greetingMessage = "{$this->greeting}, {$this->name}";
     }
 
 
 };
 ?>
 <div>
-    <div>
-        {{$greeting}}, {{ $name }}!
-    </div>
+
     <form
-    wire:submit="changeName"
+    wire:submit="changeGreeting"
     >
 
     <div class="mt-2">
@@ -47,6 +54,11 @@ new class extends Component
             class=" p-4 border rounded-md bg-gray-700 text-white"
         >
     </div>
+        <div>
+            @error('name')
+            {{$message}}
+            @enderror
+        </div>
 
     <div class="mt-2">
         <button
@@ -57,9 +69,9 @@ new class extends Component
         </button>
     </div>
     </form>
-    @if($name ==! '')
+    @if($greetingMessage ==! '')
         <div class="mt-5">
-            {{$greeting}} , {{$name}}!
+            {{$greetingMessage}}
         </div>
         @endif
 </div>

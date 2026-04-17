@@ -5,7 +5,7 @@ use Livewire\Component;
 new class extends Component
 {
 
-    #[\Livewire\Attributes\Validate('required|min:2')]
+    #[\Livewire\Attributes\Validate('required|min:2',onUpdate: false)]
     public $name = '';
     public $greeting = '';
     public $greetingMessage = '';

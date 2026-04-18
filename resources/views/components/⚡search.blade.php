@@ -18,7 +18,7 @@ new class extends Component
 
         $this->results = \App\Models\Article::where('title','LIKE',$searchTerm)->get();
     }
-
+#[\Livewire\Attributes\On('search:clear-results')]
     public function clear()
     {
         $this->reset('results','searchText');
@@ -34,13 +34,9 @@ new class extends Component
                 type="text"
                 wire:model.live.debounce="searchText"
                 placeholder="{{$placeholder}}"
-                class=" p-4 w-9/12 border rounded-md bg-gray-700 text-white"
+                class=" p-4 w-full border rounded-md bg-gray-700 text-white"
             >
-           <button class="text-white font-medium rounded-md p-4 disabled:bg-indigo-400"
-           wire:click.prevent="clear()"
-           {{empty($searchText) ? 'disabled' : ''}}>
-               Clear
-           </button>
+
 
         </div>
     </form>

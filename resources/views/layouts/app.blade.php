@@ -16,7 +16,8 @@
 
     @livewireStyles
 </head>
-<body>
+
+<body x-data x-on:click="$dispatch('search:clear-results')">
 <nav>
     <a wire:navigate href="/posts"
         @class(['current' => request()->is('posts')])>

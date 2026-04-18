@@ -27,6 +27,7 @@
         @class(['current' => request()->is('posts/create')])>
         Create Posts
     </a>
+    <livewire:search placeholder="whatever we want"></livewire:search>
 </nav>
 
 {{ $slot }}

@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
-Route::livewire('/','search');
+Route::livewire('/','to_do');
 Route::livewire('/articles/{article}','show-article');
 Route::livewire('/counter','counter');
 Route::livewire('/posts','show-posts');

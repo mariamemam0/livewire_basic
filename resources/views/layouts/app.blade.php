@@ -35,10 +35,10 @@
 
 @livewireScripts  {{-- ✅ Required for Livewire to work --}}
 
-<script>
-    document.addEventListener('search:clear-results',function(e){
-             console.log('cleared results');
-    });
+<script data-navigate-once>
+
+             console.log('page loaded');
+
 </script>
 </body>
 

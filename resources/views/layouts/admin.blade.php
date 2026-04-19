@@ -58,8 +58,8 @@
 
 <nav>
     {{-- Left: Home --}}
-    <a class="nav-left" wire:navigate href="/">Home</a>
     <a class="nav-left" wire:navigate href="/dashboard">Admin Dashboard</a>
+    <a class="nav-left" wire:navigate href="/dashboard/articles">Articles</a>
 
 
     {{-- Middle: Nav Links --}}
@@ -74,10 +74,7 @@
         </a>
     </div>
 
-    {{-- Right: Search --}}
-    <div class="nav-right">
-        <livewire:search placeholder="whatever we want"></livewire:search>
-    </div>
+
 </nav>
 
 {{ $slot }}

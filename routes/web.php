@@ -6,6 +6,10 @@ Route::livewire('/','article-index');
 Route::livewire('/dashboard','dashboard');
 
 Route::livewire('/dashboard/articles','article-list');
+Route::livewire('/dashboard/articles/create','create-article');
+Route::livewire('/dashboard/articles/{article}/edit','edit-article');
+
+
 
 Route::livewire('/articles/{article}','show-article');
 Route::livewire('/counter','counter');

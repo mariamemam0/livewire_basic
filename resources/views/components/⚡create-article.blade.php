@@ -4,18 +4,12 @@ use Livewire\Component;
 
 new class extends Component
 {
-    #[\Livewire\Attributes\Validate('required')]
-    public $title = '';
-    #[\Livewire\Attributes\Validate('required')]
-    public $content = '';
-
-    public function save()
-    {
-        $this->validate();
-        \App\Models\Article::create($this->all());
-
-        $this->redirect('/dashboard/articles',navigate: true);
-    }
+   public \App\Livewire\Forms\ArticleForm $form;
+   public function save()
+   {
+       $this->form->store();
+       $this->redirect('/dashboard/articles',navigate: true);
+   }
 
 };
 ?>
@@ -28,7 +22,7 @@ new class extends Component
             <input
                 type="text"
                 class="p-2 w-full border rounded-md bg-gray-700 text-white"
-                wire:model="title"
+                wire:model="form.title"
             >
             <div>
                 @error('title') <span class="text-red-600">{{ $message }}</span> @enderror
@@ -39,7 +33,7 @@ new class extends Component
             <textarea
                 id="article-content"
             class="p-2 w-full border rounded-md bg-gray-700 text-white"
-            wire:model="content"
+            wire:model="form.content"
             ></textarea>
             <div>
                 @error('content') <span class="text-red-600">{{ $message }}</span> @enderror

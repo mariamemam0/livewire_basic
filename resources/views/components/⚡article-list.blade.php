@@ -14,6 +14,7 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
     public function delete(\App\Models\Article $article)
     {
         $article->delete();
+
     }
 };
 ?>
@@ -40,12 +41,21 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
         @foreach ($this->articles as $article)
             <tr wire:key="{{$article->id}}" class="border-b bg-gray-800 border-gray-700">
                 <td class="px-6 py-3">{{$article->title}}</td>
+                <td class="px-6 py-3">{{str($article->content)->limit(45)}}</td>
+
                 <td class="px-6 py-3">
+                    <a class="text-gray-200 p-2 "
+                    href="/dashboard/articles/{{$article->id}}/edit"
+                    wire:navigate
+                    >
+                        Edit
+                    </a>
                     <button class="text-gray-200 p-2 !bg-red-700 hover:!bg-red-900 rounded-sm"
                             wire:click="delete({{ $article->id }})"
                             wire:confirm="Are you sure you want to delete this article?">
                         Delete
                     </button>
+
 
                 </td>
 

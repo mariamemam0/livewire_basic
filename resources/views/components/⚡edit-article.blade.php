@@ -28,7 +28,7 @@ public \App\Livewire\Forms\ArticleForm $form;
     <form wire:submit="save">
         <div class="mb-3">
             <label class="block" for="article-title">Title</label>
-            <div wire:dirty.remove>Form data has not changed</div>
+            <div wire:dirty wire:target="form.title">Title data has changed</div>
             <input
                 type="text"
                 class="p-2 w-full border rounded-md bg-gray-700 text-white"

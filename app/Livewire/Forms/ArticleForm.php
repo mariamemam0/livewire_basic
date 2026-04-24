@@ -17,7 +17,7 @@ class ArticleForm extends Form
     public $content = '';
 
     public $published = false;
-    public $notification = [];
+    public $notifications = [];
     public $allowNotifications = false;
 
     public function setArticle(Article $article){

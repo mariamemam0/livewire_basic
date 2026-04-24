@@ -4,6 +4,7 @@ use Livewire\Component;
 
 new class extends Component
 {
+    #[\Livewire\Attributes\Lazy];
     public $count = 0;
 
     public function mount()
@@ -14,7 +15,7 @@ new class extends Component
 
     public function placeholder()
     {
-        return view('placeholder',[
+        return view('components.placeholder',[
             'message'=> 'Published cont is loading'
         ]);
     }

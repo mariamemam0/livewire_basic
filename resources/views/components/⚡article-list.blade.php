@@ -20,7 +20,7 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
 ?>
 
 <div class="m-auto w-1/2 mb-4">
-    <div class="mb-3">
+    <div class="mb-3 flex justifiy-between item-center">
         <a
             href="/dashboard/articles/create"
             class="text-gray-200 p-2 bg-indigo-700 hover:bg-indigo-900 rounded-sm"
@@ -28,12 +28,15 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
         >
             Create Article
         </a>
+        <livewire:published-count lazy></livewire:published-count>
     </div>
-    <table>
+    <table class="w-full">
         <thead class="text-xs uppercase bg-gray-700 text-gray-400">
         <tr>
             <th class="px-6 py-3">Title</th>
-            <th class="px-6 py-3">Title</th>
+            <th class="px-6 py-3"></th>
+            <th class="px-6 py-3"></th>
+
 
         </tr>
         </thead>

@@ -14,7 +14,9 @@ new class extends Component
 
     public function placeholder()
     {
-        return '<div>Published count is loaded</div>.';
+        return view('placeholder',[
+            'message'=> 'Published cont is loading'
+        ]);
     }
 };
 ?>

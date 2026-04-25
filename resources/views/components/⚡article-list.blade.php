@@ -20,7 +20,8 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
         }
 
         $article->delete();
-      // unset($this->articles);
+        unset($this->articles);
+        cache()->forget('published-count');
 
     }
 

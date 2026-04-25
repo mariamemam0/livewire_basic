@@ -22,13 +22,13 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
     public function showAll()
     {
         $this->showOnlyPublished = false;
-        $this->resetPage();
+        $this->resetPage(pageName: 'articles-page');
     }
 
     public function showPublished()
     {
         $this->showOnlyPublished = true;
-        $this->resetPage();
+        $this->resetPage(pageName: 'articles-page');
     }
 
     #[Computed]

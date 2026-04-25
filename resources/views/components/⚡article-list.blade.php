@@ -1,19 +1,24 @@
 <?php
 
 use Livewire\Component;
+
 use Livewire\Attributes\Computed;
 
 new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('layouts::admin')]class extends Component
 {
+
+    use \Livewire\WithPagination;
     #[Computed]
     public function articles()
     {
-        return \App\Models\Article::all();
+        return \App\Models\Article::paginate(10);
     }
+
 
     public function delete(\App\Models\Article $article)
     {
         $article->delete();
+        $this->resetPage();
 
     }
 };
@@ -66,5 +71,8 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
         @endforeach
         </tbody>
     </table>
+    <div class="mt-3">
+        {{$this->articles->links()}}
+    </div>
 
 </div>

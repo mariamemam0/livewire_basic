@@ -4,7 +4,7 @@ use Livewire\Component;
 
 new class extends Component
 {
-    #[\Livewire\Attributes\Lazy];
+    #[\Livewire\Attributes\Lazy]
     public $count = 0;
 
     public function mount()

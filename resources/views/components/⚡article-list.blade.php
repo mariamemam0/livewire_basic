@@ -20,7 +20,7 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
         }
 
         $article->delete();
-        $this->resetPage();
+       unset($this->articles);
 
     }
 

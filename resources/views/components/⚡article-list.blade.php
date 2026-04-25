@@ -35,6 +35,9 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
         </a>
         <livewire:published-count lazy class="ml-4"></livewire:published-count>
     </div>
+    <div class="my-3">
+        {{$this->articles->links()}}
+    </div>
     <table class="w-full">
         <thead class="text-xs uppercase bg-gray-700 text-gray-400">
         <tr>
@@ -71,8 +74,6 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
         @endforeach
         </tbody>
     </table>
-    <div class="mt-3">
-        {{$this->articles->links(data: ['scrollTo' => false])}}
-    </div>
+
 
 </div>

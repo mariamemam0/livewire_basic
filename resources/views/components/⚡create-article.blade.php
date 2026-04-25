@@ -9,6 +9,7 @@ new class extends Component
    {
        $this->form->store();
        $this->redirectRoute('dashboard.articles.index',navigate: true);
+       $this->redirectIntended('/dashboard');
    }
 
 };

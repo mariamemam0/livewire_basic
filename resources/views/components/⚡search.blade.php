@@ -5,7 +5,7 @@ use App\Models\Article;
 new class extends Component
 {
 
-#[\Livewire\Attributes\Url(as: 'q' , except:'',history: true)]
+//#[\Livewire\Attributes\Url(as: 'q' , except:'',history: true)]
     public $searchText = '';
     public $placeholder;
 
@@ -17,6 +17,18 @@ new class extends Component
         unset($this->results);
 
     }
+
+    protected function queryString()
+    {
+        return
+       [ 'searchText' => [
+            'as' => 'q',
+            'history' => true,
+            'except' => '',
+       ]
+    ];
+    }
+
     #[\Livewire\Attributes\Computed]
     public function results()
     {

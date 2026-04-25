@@ -14,10 +14,10 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
 
     public function delete(\App\Models\Article $article)
     {
-//        if($this->articles->count()<10)
-//        {
-//            throw new Exception("Nope");
-//        }
+        if($this->articles->count()<10)
+        {
+            throw new Exception("Nope");
+        }
 
         $article->delete();
       // unset($this->articles);
@@ -36,7 +36,7 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
         $this->resetPage(pageName: 'articles-page');
     }
 
-    #[Computed(persist:true)]
+    #[Computed()]
     public function articles()
     {
         $query = \App\Models\Article::query();

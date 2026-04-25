@@ -26,17 +26,13 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
 
     }
 
-    public function showAll()
+    public function togglePublished($showOnlyPublished)
     {
         $this->showOnlyPublished = false;
         $this->resetPage(pageName: 'articles-page');
     }
 
-    public function showPublished()
-    {
-        $this->showOnlyPublished = true;
-        $this->resetPage(pageName: 'articles-page');
-    }
+
 
     #[Computed()]
     public function articles()
@@ -63,13 +59,21 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
             Create Article
         </a>
         <div>
-            <button class="text-gray-200 p-2 bg-blue-700 hover:bg-blue-900 rounded-sm"
-            wire:click="showAll()"
+            <button @class([
+       "text-gray-200 p-2 hover:bg-blue-900 rounded-sm",
+       'bg-gray-700' => $showOnlyPublished,
+       'bg-blue-700' => !$showOnlyPublished,
+])
+            wire:click="togglePublished(false)"
             >
                 Show All
             </button>
-            <button class="text-gray-200 p-2 bg-blue-700 hover:bg-blue-900 rounded-sm"
-            wire:click="showPublished()"
+            <button @class([
+       "text-gray-200 p-2 hover:bg-blue-900 rounded-sm",
+       'bg-blue-700' => $showOnlyPublished,
+       'bg-gray-700' => !$showOnlyPublished,
+       ])
+            wire:click="togglePublished(true)"
             >
                 Show Published (<livewire:published-count lazy class="ml-4" placeholder-text="loading"></livewire:published-count>)
             </button>

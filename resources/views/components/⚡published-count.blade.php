@@ -6,24 +6,25 @@ new class extends Component
 {
     #[\Livewire\Attributes\Lazy]
     public $count = 0;
+    public $placeholderText = '';
 
     public function mount()
     {
-        sleep(3);
+        sleep(1);
         $this->count = Article::where('published',1)->count();
     }
 
     public function placeholder()
     {
         return view('components.placeholder',[
-            'message'=> 'Published cont is loading'
+            'message'=> $this->placeholderText,
         ]);
     }
 };
 ?>
 
-<div>
-Published: {{$count}}
+<span>
+{{$count}}
 
 
-</div>
+</span>

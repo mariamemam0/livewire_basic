@@ -8,8 +8,8 @@ new class extends Component
 }
 ?>
 
-<div>
+<span>
 
 {{$message}}
 
-</div>
+</span>

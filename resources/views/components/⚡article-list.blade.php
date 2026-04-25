@@ -8,17 +8,39 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
 {
 
     use \Livewire\WithPagination;
-    #[Computed]
-    public function articles()
-    {
-        return \App\Models\Article::paginate(10);
-    }
+
+    public $showOnlyPublished = false;
 
 
     public function delete(\App\Models\Article $article)
     {
         $article->delete();
         $this->resetPage();
+
+    }
+
+    public function showAll()
+    {
+        $this->showOnlyPublished = false;
+        $this->resetPage();
+    }
+
+    public function showPublished()
+    {
+        $this->showOnlyPublished = true;
+        $this->resetPage();
+    }
+
+    #[Computed]
+    public function articles()
+    {
+        $query = \App\Models\Article::query();
+        if($this->showOnlyPublished)
+        {
+            $query->where('published' , 1);
+        }
+
+        return $query->paginate(10);
 
     }
 };
@@ -28,12 +50,23 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
     <div class="mb-3 flex justify-between item-center">
         <a
             href="/dashboard/articles/create"
-            class="text-gray-200 p-2 bg-indigo-700 hover:bg-indigo-900 rounded-sm"
+            class="text-blue-500 hover:text-blue-700"
             wire:navigate
         >
             Create Article
         </a>
-        <livewire:published-count lazy class="ml-4"></livewire:published-count>
+        <div>
+            <button class="text-gray-200 p-2 bg-blue-700 hover:bg-blue-900 rounded-sm"
+            wire:click="showAll()"
+            >
+                Show All
+            </button>
+            <button class="text-gray-200 p-2 bg-blue-700 hover:bg-blue-900 rounded-sm"
+            wire:click="showPublished()"
+            >
+                Show Published (<livewire:published-count lazy class="ml-4" placeholder-text="loading"></livewire:published-count>)
+            </button>
+        </div>
     </div>
     <div class="my-3">
         {{$this->articles->links()}}

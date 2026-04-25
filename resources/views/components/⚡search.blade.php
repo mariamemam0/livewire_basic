@@ -1,29 +1,28 @@
 <?php
 
 use Livewire\Component;
-
+use App\Models\Article;
 new class extends Component
 {
-    #[\Livewire\Attributes\Validate('required')]
+
+#[\Livewire\Attributes\Url(as: 'q' , except:'')]
     public $searchText = '';
-    public $results = [];
     public $placeholder;
 
-    public function updatedSearchText($value)
-    {
-        $this->validate();
-        $this->reset('results');
 
-        $searchTerm = "%{$value}%";
-
-        $this->results = \App\Models\Article::where('title','LIKE',$searchTerm)->get();
-    }
 #[\Livewire\Attributes\On('search:clear-results')]
     public function clear()
     {
-        $this->reset('results','searchText');
+        $this->reset('searchText');
+        unset($this->results);
 
     }
+    #[\Livewire\Attributes\Computed]
+    public function results()
+    {
+        return Article::where('title','LIKE',"%{$this->searchText}%")->get();
+    }
+
 };
 ?>
 
@@ -40,5 +39,5 @@ new class extends Component
 
         </div>
     </form>
-<livewire:search-results :results="$results" :show="!empty($searchText)"></livewire:search-results>
+<livewire:search-results :results="$this->results" :show="!empty($searchText)"></livewire:search-results>
 </div>

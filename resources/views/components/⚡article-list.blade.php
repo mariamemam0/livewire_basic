@@ -40,7 +40,7 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
             $query->where('published' , 1);
         }
 
-        return $query->paginate(10);
+        return $query->paginate(10,pageName: 'articles-page');
 
     }
 };

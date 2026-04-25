@@ -4,8 +4,7 @@ use Livewire\Component;
 use App\Models\Article;
 new class extends Component
 {
-
-//#[\Livewire\Attributes\Url(as: 'q' , except:'',history: true)]
+#[\Livewire\Attributes\Url(as: 'q' , except:'')]
     public $searchText = '';
     public $placeholder;
 

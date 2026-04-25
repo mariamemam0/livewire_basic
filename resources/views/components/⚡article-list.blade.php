@@ -8,6 +8,7 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
 {
 
     use \Livewire\WithPagination;
+    #[\Livewire\Attributes\Session(key:'published')]
 
     public $showOnlyPublished = false;
 

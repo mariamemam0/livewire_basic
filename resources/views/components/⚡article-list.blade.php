@@ -79,6 +79,11 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
             </button>
         </div>
     </div>
+    @if(session('status'))
+        <div class="text-center bg-green-700 text-gray-200">
+       {{session('status')}}
+        </div>
+    @endif
     <div class="my-3">
         {{$this->articles->links()}}
     </div>

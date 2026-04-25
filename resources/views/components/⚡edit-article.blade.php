@@ -17,7 +17,7 @@ public \App\Livewire\Forms\ArticleForm $form;
     {
 
         $this->form->update();
-
+       session()->flash('status','Article successfully updated');
         $this->redirect('/dashboard/articles',navigate: true);
     }
 };

@@ -5,13 +5,12 @@ use Livewire\Component;
 new class extends Component
 {
     #[\Livewire\Attributes\Lazy]
-    public $count = 0;
     public $placeholderText = '';
-
-    public function mount()
+#[\Livewire\Attributes\Computed(cache:true, key:'published-count')]
+    public function count()
     {
         sleep(1);
-        $this->count = Article::where('published',1)->count();
+        return Article::where('published',1)->count();
     }
 
     public function placeholder()
@@ -24,7 +23,7 @@ new class extends Component
 ?>
 
 <span>
-{{$count}}
+{{$this->count}}
 
 
 </span>

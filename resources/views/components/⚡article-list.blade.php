@@ -72,7 +72,7 @@ new #[\Livewire\Attributes\Title('Mange Articles'),\Livewire\Attributes\Layout('
         </tbody>
     </table>
     <div class="mt-3">
-        {{$this->articles->links()}}
+        {{$this->articles->links(data: ['scrollTo' => false])}}
     </div>
 
 </div>
